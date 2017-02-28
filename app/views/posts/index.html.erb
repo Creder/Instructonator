@@ -25,7 +25,7 @@
 
 <br>
 
-<% if can? :create, post %>
+<% if can? :create, Post %>
 <%= link_to 'New Post', new_post_path %>
 <% else %>
 <p>You must sign in for create posts!</p>
