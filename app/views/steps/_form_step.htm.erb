@@ -1,0 +1,15 @@
+<%= form_for([@post, @post.steps.build]) do |f| %>
+    
+    <dev>
+    <%= f.label :title %>
+    <%= f.text_field :title %>
+    	
+    </dev>
+    <dev>
+    <%= f.label :content %>
+    <%= f.text_area :content %>
+    </dev>
+    <dev>
+    <%= f.submit "Add" %>
+    </dev>
+<% end %>

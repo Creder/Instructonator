@@ -1,6 +1,18 @@
 <h1>Editing Post</h1>
 
 <%= render 'form', post: @post %>
+<p>
+  <% if @post.steps.any? %>
+  <%= render @post.steps =%>
+  <% else %>
+  <p> Not found any step</p>
+  <% end %>
+  
+</p>
+<%= link_to 'Add Step', new_post_step_path(@post) %>
+  
+
+
 
 <%= link_to 'Show', @post %> |
 <%= link_to 'Back', posts_path %>

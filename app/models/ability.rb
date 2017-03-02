@@ -6,12 +6,12 @@ class Ability
     if user.has_role? :admin
         can :manage, :all
     elsif user.has_role? :member
-        can :read, Post
+        can :read, :all
         can :create, Post
         can :update, Post, user_id: user.id
         can :destroy, Post, user_id: user.id
     else 
-        can :read, Post
+        can :read, :all
     end
     # Define abilities for the passed in user here. For example:
     #

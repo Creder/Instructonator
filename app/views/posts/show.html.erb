@@ -6,8 +6,12 @@
 </p>
 
 <p>
-  <strong>Content:</strong>
-  <%= @post.content %>
+  <% if @post.steps.any? %>
+  <%= render @post.steps =%>
+  <% else %>
+  <p> Not found any step</p>
+  <% end %>
+  
 </p>
 
 <% if can? :update, @post %>
