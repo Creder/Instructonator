@@ -11,9 +11,13 @@ gem 'rails', '~> 5.0.1'
 # Use sqlite3 as the database for Active Record
 gem 'pg'
 gem 'bootstrap-sass'
+gem 'record_tag_helper'
 gem 'twitter-bootstrap-rails'
 gem 'devise'
 gem 'cancancan'
+gem 'dropzonejs-rails'
+gem 'cloudinary'
+gem 'carrierwave'
 gem 'rolify'
 gem 'omniauth-facebook'
 gem 'omniauth-vkontakte'
@@ -32,6 +36,7 @@ gem 'coffee-rails', '~> 4.2'
 
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
+gem 'jquery-ui-rails'
 # Turbolinks makes navigating your web application faster. Read more: https://github.com/turbolinks/turbolinks
 gem 'turbolinks', '~> 5'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder

@@ -1,0 +1,7 @@
+I"b(function() {
+  jQuery(function() {
+    return $('#steps').sortable();
+  });
+
+}).call(this);
+:ET

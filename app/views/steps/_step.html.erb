@@ -1,8 +1,18 @@
-<div class="panel panel-default">
+<%= content_tag_for :div, step do %> 
   <div class="panel-heading">
     <h3 class="panel-title"><%= step.title %></h3>
   </div>
   <div class="panel-body">
+  <%= image_tag(step.stepimage.thumbnail.url, :class => "") %>
     <%= truncate step.content%>
+
   </div>
-</div>
+  <% unless params[:action] == 'show'%>
+    <% if can? :update, step %>
+      <%= link_to 'Edit', edit_post_step_path(@post, step) %> |
+    <% end %>
+    <% if can? :destroy, step %>
+      <%= link_to 'Destroy', post_step_path(@post, step), method: :delete %>
+    <% end %>
+  <% end %>
+<% end %>

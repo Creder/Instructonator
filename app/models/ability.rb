@@ -7,6 +7,9 @@ class Ability
         can :manage, :all
     elsif user.has_role? :member
         can :read, :all
+        can :create, Step
+        can :update, Step, user_id: user.id
+        can :destroy, Step, user_id: user.id
         can :create, Post
         can :update, Post, user_id: user.id
         can :destroy, Post, user_id: user.id

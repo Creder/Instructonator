@@ -1,0 +1,30 @@
+<%= form_for([@post, @step], html: {remote: true, class: 'new_photo needsclick dz-clickable'}) do |f| %>
+    
+    <div>
+    <%= f.label :title %>
+    <%= f.text_field :title %>
+    	
+    </div>
+    <div>
+    <%= f.label :content %>
+    <%= f.text_area :content %>
+    </div>
+    <%= image_tag(@step.stepimage.thumbnail.url, :class => "") %>
+    <div id="direct_upload" class="basic-form dz-clickable needsclick">
+    <div class="dz-message needsclick dz-clickable">
+      Drop files here or click to upload.
+    </div>
+    <%= f.hidden_field :bytes %>
+    <%= hidden_field_tag :direct, params[:direct] %>
+    <div>
+    </div>
+    </div>
+    <%= f.submit %>
+<% end %>
+
+
+<%= csrf_meta_tags %>
+<%= javascript_include_tag "cloudinary_settings", "data-turbolinks-track" => "reload" %>
+<%= javascript_include_tag "steps", "data-turbolinks-track" => "reload" %>
+<%= javascript_include_tag "dropzone", "data-turbolinks-track" => "reload" %>
+<%= cloudinary_js_config %>
