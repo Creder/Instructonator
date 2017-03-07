@@ -48,30 +48,7 @@ $(document).ready(() => {
     $('input[name="photo[image]"]').remove();
   }
 
-  function createImageElement(response, imgId){
-    var img = $.cloudinary.image(response.public_id, { width: 400, height: 300, crop: 'fit', quality: 80 });
-    console.log(img);
-    var imgElement =`<div class="col-lg-3 col-md-4 col-xs-6 photo">
-        <div class="img-border clearfix">
-          ${img[0].outerHTML}
-      </div>
-        <!--<a class="delete-btn" rel="nofollow" data-id="${imgId}">
-          ×
-        </a>-->
-      </div>`;
-    $(".gallery").prepend($(imgElement).hide().fadeIn(1500));
-  }
-
-  $('.alert.alert-dismissible.alert-success').fadeOut(3000);
-
-  $(document).on('click', 'a.delete-btn', function(e){
-    if(confirm("You sure?")){
-      var id = $(this).attr('data-id');
-      $.when(deletePhoto(id))
-        .then(removeImageElement(this));
-    }
-  });
-
+ 
   $('#direct_upload').on('drop',function(e){
     var imgUrl = e.originalEvent.dataTransfer.getData('Text');
     if (imgUrl && !imgUrl.includes("cloudinary.com")) {
@@ -95,13 +72,7 @@ $(document).ready(() => {
     });
   }
 
-  function removeImageElement(element){
-    $(element).parent(".col-lg-3.col-md-4.col-xs-6.photo").fadeOut(1000);
-  }
-
   
-
-
 });
 
 

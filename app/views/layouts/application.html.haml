@@ -35,6 +35,8 @@
           - else
             %li= link_to 'Sign out', destroy_user_session_path, :method => :delete
 
+    
+
 
     .container
       .row
@@ -43,11 +45,10 @@
           = yield
         .col-lg-3
           .well.sidebar-nav
-            %h3 Sidebar
+            %h3 Tags cloud
             %ul.nav.nav-list
-              %li.nav-header Sidebar
-              %li= link_to "Link 1", "/path1"
-              %li= link_to "Link 2", "/path2"
-              %li= link_to "Link 3", "/path3"
+              #tag_cloud
+                - tag_cloud Post.tag_counts, %w[s m l] do |tag, css_class|
+                  = link_to tag.name, tag_path(tag.name), class: css_class
       %footer
         %p &copy; Company 2017

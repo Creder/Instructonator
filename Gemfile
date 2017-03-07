@@ -11,6 +11,8 @@ gem 'rails', '~> 5.0.1'
 # Use sqlite3 as the database for Active Record
 gem 'pg'
 gem 'bootstrap-sass'
+gem 'acts_as_votable'
+gem 'acts-as-taggable-on' 
 gem 'record_tag_helper'
 gem 'twitter-bootstrap-rails'
 gem 'devise'
