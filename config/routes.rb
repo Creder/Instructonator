@@ -3,13 +3,14 @@ Rails.application.routes.draw do
 
   get 'tags/:tag', to: 'posts#index', as: :tag
   resources :posts do
-
+    get :autocomplete_tag_name, :on => :collection
   	member do
   		put "like", to: "posts#upvote"
   		put "dislike", to: "posts#downvote"
   	end
 
   	resources :steps do
+            resources :comments
             resources :photos
             put :sort, on: :collection
   	end

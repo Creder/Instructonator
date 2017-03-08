@@ -1,6 +1,7 @@
 class PostsController < ApplicationController
   before_action :set_post, only: [:show, :edit, :update, :destroy, :upvote, :downvote]
   load_and_authorize_resource
+  autocomplete :tag, :name, :class_name => 'ActsAsTaggableOn::Tag'
 
   # GET /posts
   # GET /posts.json
@@ -86,6 +87,6 @@ class PostsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def post_params
-      params.require(:post).permit(:title, :tag_list)
+      params.require(:post).permit(:title, :tag_list => [])
     end
 end

@@ -19,6 +19,13 @@
 
 
   %body
+    :javascript
+      $(document).on('ready page:load', function () {
+        $('#product_tag_ids').chosen({
+          allow_single_deselect: true,
+          width: '100%'
+        })
+      });
     .navbar.navbar-default.navbar-static-top
       .container
         %button.navbar-toggle(type="button" data-toggle="collapse" data-target=".navbar-responsive-collapse")
@@ -33,6 +40,7 @@
             %li= link_to "vk", user_vkontakte_omniauth_authorize_path
             %li= link_to "tw", user_twitter_omniauth_authorize_path
           - else
+            - current_user.name
             %li= link_to 'Sign out', destroy_user_session_path, :method => :delete
 
     

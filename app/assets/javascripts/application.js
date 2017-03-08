@@ -14,6 +14,7 @@
 //= require jquery-ui
 //= require jquery_ujs
 //= require dropzone
+//= require jquery-ui/widgets/autocomplete
 //= require twitter/bootstrap
 //= require bootstrap-sprockets
 //= require turbolinks

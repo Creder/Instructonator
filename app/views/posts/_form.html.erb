@@ -18,7 +18,12 @@
 
   <div class="field">
     <%= f.label :tag_list, "Tags (separated by commas)"%>
-    <%= f.text_field :tag_list %>
+    <%= f.autocomplete_field :tag_list, autocomplete_tag_name_posts_path, 
+                            :value => f.object.tag_list.to_s, 
+                            'data-delimiter' => ', 
+                            ', 'data-auto-focus' => true,
+                            :multiple => true %>
+
   </div>
 
   <div class="actions">
