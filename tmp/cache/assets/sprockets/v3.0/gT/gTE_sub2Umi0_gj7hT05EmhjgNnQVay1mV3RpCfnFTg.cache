@@ -1,0 +1,20 @@
+I"0(function() {
+  var ready;
+
+  jQuery(function() {});
+
+  ready = function() {
+    $('#post_tag_ids').chosen();
+    return $('#steps').sortable()({
+      axis: "y"
+    });
+  };
+
+  $(document).ready(ready);
+
+  $(document).on('page:load', ready);
+
+  $(document).on("turbolinks:load", ready);
+
+}).call(this);
+:ET

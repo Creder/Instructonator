@@ -1,0 +1,11 @@
+I"Ç(function() {
+  jQuery(function() {
+    $('#post_tag_ids').chosen();
+    $("#form_field").trigger("chosen:updated");
+    return $('#steps').sortable()({
+      axis: "y"
+    });
+  });
+
+}).call(this);
+:ET

@@ -13,8 +13,8 @@
 //= require jquery
 //= require jquery-ui
 //= require jquery_ujs
+//= require chosen-jquery
 //= require dropzone
-//= require jquery-ui/widgets/autocomplete
 //= require twitter/bootstrap
 //= require bootstrap-sprockets
 //= require turbolinks

@@ -1,9 +1,9 @@
 Rails.application.routes.draw do
+  resources :categories
   devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks" }
 
   get 'tags/:tag', to: 'posts#index', as: :tag
   resources :posts do
-    get :autocomplete_tag_name, :on => :collection
   	member do
   		put "like", to: "posts#upvote"
   		put "dislike", to: "posts#downvote"

@@ -14,6 +14,7 @@ gem 'bootstrap-sass'
 gem 'acts_as_votable'
 gem 'acts-as-taggable-on' 
 gem 'record_tag_helper'
+gem 'chosen-rails'
 gem 'twitter-bootstrap-rails'
 gem 'devise'
 gem 'cancancan'
@@ -39,7 +40,6 @@ gem 'coffee-rails', '~> 4.2'
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
 gem 'jquery-ui-rails'
-gem 'rails-jquery-autocomplete'
 # Turbolinks makes navigating your web application faster. Read more: https://github.com/turbolinks/turbolinks
 gem 'turbolinks', '~> 5'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
@@ -67,5 +67,9 @@ group :development do
   gem 'spring-watcher-listen', '~> 2.0.0'
 end
 
+
+source 'https://rails-assets.org' do
+  gem 'rails-assets-chosen'
+end
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]

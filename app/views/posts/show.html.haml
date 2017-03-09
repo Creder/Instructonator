@@ -1,0 +1,25 @@
+%p#notice= notice
+%p
+  Category: #{link_to @post.category.name, category_path(:id => @post.category.id)}
+%p
+  %strong Title:
+  = @post.title
+%p
+  - if @post.steps.any?
+    = render @post.steps
+  - else
+    %p Not found any step
+%p
+  Tags : #{raw @post.tag_list.map {|t| link_to t, tag_path(t) }.join(', ')}
+- if can? :upvote, @post
+  = link_to 'Upvote', like_post_path(@post), method: :put
+  = @post.get_upvotes.size
+- if can? :downvote, @post
+  = link_to 'Downvote', dislike_post_path(@post), method: :put
+  = @post.get_downvotes.size
+- if can? :update, @post
+  = link_to 'Edit', edit_post_path(@post)
+  |
+- if can? :destroy, @post
+  = link_to 'Destroy', @post, method: :delete, data: { confirm: 'Are you sure?' }
+= link_to 'Back', posts_path
