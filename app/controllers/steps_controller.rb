@@ -1,8 +1,6 @@
 class StepsController < ApplicationController
   before_action :find_post
   before_action :find_step, only: [:edit, :update, :destroy]
-  load_and_authorize_resource
-
 
 
 
@@ -22,7 +20,7 @@ class StepsController < ApplicationController
   	@step.user = current_user
   	@step.save
 
-  	redirect_to :back
+  	redirect_to edit_post_path(@post)
   end
 
 
@@ -31,12 +29,12 @@ class StepsController < ApplicationController
 
   def update
   	@step.update(steps_params)
-    redirect_to :back
+    redirect_to edit_post_path(@post)
   end
 
   def destroy
   	@step.destroy
-    redirect_to :back
+    redirect_to edit_post_path(@post)
   end
 
   def sort

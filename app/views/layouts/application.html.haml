@@ -33,10 +33,7 @@
             %li= link_to "vk", user_vkontakte_omniauth_authorize_path
             %li= link_to "tw", user_twitter_omniauth_authorize_path
           - else
-            - current_user.name
             %li= link_to 'Sign out', destroy_user_session_path, :method => :delete
-
-    
 
 
     .container
@@ -46,10 +43,11 @@
           = yield
         .col-lg-3
           .well.sidebar-nav
-            %h3 Tags cloud
+            %h3 Sidebar
             %ul.nav.nav-list
-              #tag_cloud
-                - tag_cloud Post.tag_counts, %w[s m l] do |tag, css_class|
-                  = link_to tag.name, tag_path(tag.name), class: css_class
-
-  %p &copy; Company 2017
+              %li.nav-header Sidebar
+              %li= link_to "Link 1", "/path1"
+              %li= link_to "Link 2", "/path2"
+              %li= link_to "Link 3", "/path3"
+      %footer
+        %p &copy; Company 2017

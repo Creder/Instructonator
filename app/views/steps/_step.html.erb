@@ -3,8 +3,9 @@
     <h3 class="panel-title"><%= step.title %></h3>
   </div>
   <div class="panel-body">
-  <%= image_tag(step.stepimage.thumbnail.url, :class => "") %>
+  <%= cl_image_tag(step.stepimage, :alt => "Step Image", :width => 200, :height => 200, :crop => :fill)%>
     <%= truncate step.content%>
+
   </div>
   <% unless params[:action] == 'show'%>
     <% if can? :update, step %>
@@ -14,11 +15,4 @@
       <%= link_to 'Destroy', post_step_path(@post, step), method: :delete %>
     <% end %>
   <% end %>
-  <h3>Comments </h3>
-  <% if step.comments.any? %>
-    <%= render step.comments =%>
-  <% else %>
-    <p>No comments yet</p>
-  <% end %>
-<!--  -->
 <% end %>

@@ -1,0 +1,10 @@
+I"(function() {
+  jQuery(function() {
+    $('#steps').sortable();
+    return {
+      axis: 'y'
+    };
+  });
+
+}).call(this);
+:ET

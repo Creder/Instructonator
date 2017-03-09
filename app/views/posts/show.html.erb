@@ -1,0 +1,23 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Title:</strong>
+  <%= @post.title %>
+</p>
+
+<p>
+  <% if @post.steps.any? %>
+  <%= render @post.steps =%>
+  <% else %>
+  <p> Not found any step</p>
+  <% end %>
+  
+</p>
+
+<% if can? :update, @post %>
+<%= link_to 'Edit', edit_post_path(@post) %> |
+<% end %>
+<% if can? :destroy, @post %>
+<%= link_to 'Destroy', @post, method: :delete, data: { confirm: 'Are you sure?' } %>
+<% end %>
+<%= link_to 'Back', posts_path %>

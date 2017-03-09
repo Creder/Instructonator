@@ -11,10 +11,7 @@ gem 'rails', '~> 5.0.1'
 # Use sqlite3 as the database for Active Record
 gem 'pg'
 gem 'bootstrap-sass'
-gem 'acts_as_votable'
-gem 'acts-as-taggable-on' 
 gem 'record_tag_helper'
-gem 'chosen-rails'
 gem 'twitter-bootstrap-rails'
 gem 'devise'
 gem 'cancancan'
@@ -67,9 +64,5 @@ group :development do
   gem 'spring-watcher-listen', '~> 2.0.0'
 end
 
-
-source 'https://rails-assets.org' do
-  gem 'rails-assets-chosen'
-end
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]

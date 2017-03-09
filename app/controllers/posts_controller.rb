@@ -1,15 +1,11 @@
 class PostsController < ApplicationController
-  before_action :set_post, only: [:show, :edit, :update, :destroy, :upvote, :downvote]
+  before_action :set_post, only: [:show, :edit, :update, :destroy]
   load_and_authorize_resource
-  before_filter :prepare_categories
+
   # GET /posts
   # GET /posts.json
   def index
-    if params[:tag]
-      @posts = Post.tagged_with(params[:tag])
-    else
-      @posts = Post.all
-    end
+    @posts = Post.all
   end
 
   # GET /posts/1
@@ -67,29 +63,14 @@ class PostsController < ApplicationController
     end
   end
 
-  def upvote 
-    @post.upvote_by current_user
-    redirect_to :back
-  end
-
-  def downvote
-    @post.downvote_by current_user
-    redirect_to :back
-  end
-
-
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_post
       @post = Post.find(params[:id])
     end
 
-    def prepare_categories
-      @categories = Category.all
-    end
-
     # Never trust parameters from the scary internet, only allow the white list through.
     def post_params
-      params.require(:post).permit(:title, :tag_list, :tag, { tag_ids: [] }, :tag_ids, :category_id )
+      params.require(:post).permit(:title)
     end
 end
