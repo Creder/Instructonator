@@ -1,9 +1,0 @@
-I"{(function() {
-  jQuery(function() {
-    return $('#steps').sortable()({
-      axis: 'y'
-    });
-  });
-
-}).call(this);
-:ET
