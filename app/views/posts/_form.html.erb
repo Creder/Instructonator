@@ -1,15 +1,5 @@
 <%= form_for(post) do |f| %>
-  <% if post.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(post.errors.count, "error") %> prohibited this post from being saved:</h2>
 
-      <ul>
-      <% post.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
   <div class="field">
     <%= f.label :tag_list, "Tags" %>
     <%= f.collection_select :tag_ids, Tag.order(:name), :id, :name, {}, {multiple: true} %>
@@ -19,6 +9,15 @@
     <%= f.label :title %>
     <%= f.text_field :title %>
   </div>
+
+  <div id = "steps">
+  <% if post.steps.any? %>
+  <%= render post.steps =%>
+  <% else %>
+  <p> Not found any step</p>
+  <% end %>
+  <%= link_to 'Add Step', new_post_step_path(@post) %>
+</div>
 
   <div class="actions">
     <%= f.submit %>

@@ -12,8 +12,7 @@ Rails.application.routes.draw do
   	end
 
   	resources :steps do
-      put :sort, on: :collection
-      resources :photos      
+       collection { post :sort }   
   	end
   end
   

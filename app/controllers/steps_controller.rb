@@ -5,6 +5,7 @@ class StepsController < ApplicationController
   def index
     @steps = Step.order("priority")
   end
+
   def new
     @step = Step.new
   end
@@ -32,11 +33,11 @@ class StepsController < ApplicationController
   end
 
   def sort
-    params[:step].each do |key,value|
-      Step.find(value[:id]).update_attribute(:priority,value[:position])
+    params[:step].each_with_index do |id, index|
+      Step.where(id: id).update_all({priority: index+1})
     end
     render :nothing => true
-  end
+end
 
   private
 
