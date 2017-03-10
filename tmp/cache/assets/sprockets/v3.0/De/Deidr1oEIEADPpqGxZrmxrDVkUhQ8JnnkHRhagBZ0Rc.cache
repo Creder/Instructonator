@@ -1,0 +1,16 @@
+I"ý(function() {
+  var ready;
+
+  ready = function() {
+    $('#post_tag_ids').chosen();
+    return $('#steps').sortable();
+  };
+
+  $(document).ready(ready);
+
+  $(document).on('page:load', ready);
+
+  $(document).on("turbolinks:load", ready);
+
+}).call(this);
+:ET

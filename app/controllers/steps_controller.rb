@@ -2,15 +2,9 @@ class StepsController < ApplicationController
   before_action :find_post
   before_action :find_step, only: [:edit, :update, :destroy]
 
-
-
-  def sort
-    params[:order].each do |key,value|
-      Step.find(value[:id]).update_attribute(:priority,value[:position])
-    end
-    render :nothing => true
+  def index
+    @steps = Step.order("priority")
   end
-  
   def new
     @step = Step.new
   end
@@ -38,10 +32,10 @@ class StepsController < ApplicationController
   end
 
   def sort
-    params[:order].each do |key, params|
-      @step.update_attribute(:priority, params[:position])
+    params[:step].each do |key,value|
+      Step.find(value[:id]).update_attribute(:priority,value[:position])
     end
-    render :nithing => true
+    render :nothing => true
   end
 
   private

@@ -1,0 +1,41 @@
+I"Z(function() {
+  var ready, set_positions;
+
+  set_positions = function() {
+    $('.panel.panel-default').each(function(i) {
+      $(this).attr('data-pos', i + 1);
+    });
+  };
+
+  ready = function() {
+    $('#post_tag_ids').chosen();
+    set_positions();
+    $('.sortable').sortable();
+    $('.sortable').sortable().bind('sortupdate', function(e, ui) {
+      var updated_order;
+      updated_order = [];
+      set_positions();
+      $('.panel.panel-default').each(function(i) {
+        updated_order.push({
+          id: $(this).data('id'),
+          position: i + 1
+        });
+      });
+      $.ajax({
+        type: 'PUT',
+        url: '/steps/sort',
+        data: {
+          order: updated_order
+        }
+      });
+    });
+  };
+
+  $(document).readyready;
+
+  $(document).on('page:load', ready);
+
+  $(document).on('turbolinks:load', ready);
+
+}).call(this);
+:ET

@@ -11,5 +11,4 @@ Rails.application.config.assets.version = '1.0'
 # Rails.application.config.assets.precompile += %w( search.js )
 Rails.application.config.assets.precompile += %w( steps.js )
 Rails.application.config.assets.precompile += %w( posts.js )
-Rails.application.config.assets.precompile += %w( dropzone.js )
-Rails.application.config.assets.precompile += %w( cloudinary_settings.js )
+

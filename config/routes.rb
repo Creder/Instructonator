@@ -1,16 +1,19 @@
 Rails.application.routes.draw do
   resources :tags, except: :show
   get 'tags/:tag', to: 'posts#index'
+  
   devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks" }
+
   resources :posts do
 
   	member do
   		put "like" => "posts#upvote"
   		put "dislike" => "posts#downvote"
   	end
+
   	resources :steps do
-            resources :photos
-            put :sort, on: :collection
+      put :sort, on: :collection
+      resources :photos      
   	end
   end
   

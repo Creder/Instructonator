@@ -1,0 +1,15 @@
+I"á(function() {
+  var ready;
+
+  ready = function() {
+    return $('#post_tag_ids').chosen();
+  };
+
+  $(document).ready(ready);
+
+  $(document).on('page:load', ready);
+
+  $(document).on('turbolinks:load', ready);
+
+}).call(this);
+:ET

@@ -15,6 +15,8 @@ class Ability
         can :destroy, Post, user_id: user.id
         can :upvote, Post
         can :downvote, Post
+        can :create, Comment
+        can :destroy, Comment, user_id: user.id
     else 
         can :read, :all
     end
