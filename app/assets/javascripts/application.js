@@ -13,6 +13,7 @@
 //= require jquery
 //= require jquery-ui
 //= require jquery_ujs
+//= require chosen-jquery
 //= require cloudinary
 //= require cloudinary/processing
 //= require twitter/bootstrap

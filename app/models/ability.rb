@@ -13,6 +13,8 @@ class Ability
         can :create, Post
         can :update, Post, user_id: user.id
         can :destroy, Post, user_id: user.id
+        can :upvote, Post
+        can :downvote, Post
     else 
         can :read, :all
     end

@@ -13,7 +13,13 @@
   <% end %>
   
 </p>
-
+<%= @post.score %>
+<% if can? :upvote, @post %>
+<%= link_to 'Useful', like_post_path(@post), method: :put%> 
+<% end %>
+<% if can? :downvote, @post %>
+<%= link_to 'Unuseful', dislike_post_path(@post), method: :put%> 
+<% end %>
 <% if can? :update, @post %>
 <%= link_to 'Edit', edit_post_path(@post) %> |
 <% end %>

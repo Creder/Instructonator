@@ -1,5 +1,6 @@
 class User < ApplicationRecord
   rolify
+  acts_as_voter
   has_many :posts
   has_many :steps
   # Include default devise modules. Others available are:
