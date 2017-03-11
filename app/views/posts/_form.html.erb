@@ -2,9 +2,9 @@
 <form class="form-horizontal">
   <fieldset>
   <div class="form-group">
-    <%= f.label :tag_list, "Tags: ",  class: "col-sm-1"%>
+    <%= f.label :tag_tokens, "Tags: ",  class: "col-sm-1"%>
     <div class="col-lg-11">
-    <%= f.collection_select :tag_ids, Tag.order(:name), :id, :name, {}, {multiple: true} %>
+    <%= f.text_field :tag_tokens, data: {load: @post.tags} %>
     </div>
   </div>
 

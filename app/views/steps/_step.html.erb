@@ -4,15 +4,36 @@
   </div>
   <div class="panel-body">
     <%= cl_image_tag(step.stepimage, :alt => "Step Image", :width => 200, :height => 200, :crop => :fill)%>
-    <%= truncate step.content%>
+    <% unless params[:action] == 'edit'%>
+      <%= step.content%>
+    <% end %>
   </div>
   <% unless params[:action] == 'show'%>
     <% if can? :update, step %>
-      <%= link_to 'Edit', edit_post_step_path(@post, step) %> |
+      <%= link_to 'Edit', edit_step_path(@post, step) %> |
     <% end %>
     <% if can? :destroy, step %>
-      <%= link_to 'Destroy', post_step_path(@post, step), method: :delete %>
+      <%= link_to 'Destroy', step_path(@post, step), method: :delete %>
     <% end %>
   <% end %>
   
+  <% unless params[:action] == 'edit'%>
+  <div>
+  <p>Comments</p>
+    <% if step.comments.any? %>
+      <%= render step.comments %>
+    <% else %>
+      <p>Comments not found</p>
+    <% end %>
+  </div>
+  
+
+    <div>
+      <p>Add comment</p>
+      <%= form_for([step, step.comments.build]) do |f|%>
+      <%= f.text_area :content %>
+      <%= submit_tag "Add" %>
+      <% end %>
+    </div>
+  <% end %>
 <% end %>

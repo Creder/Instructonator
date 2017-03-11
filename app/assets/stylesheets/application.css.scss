@@ -11,8 +11,8 @@
  * It is generally better to create a new file per style scope.
  *
  */
+ @import "token-input-facebook.css";
  @import "bootstap.min.css";
- @import "chosen";
 #tag_cloud {
     width: 400px;
 	line-height: 1.6em;

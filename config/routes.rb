@@ -1,6 +1,5 @@
 Rails.application.routes.draw do
   resources :tags, except: :show
-  get 'tags/:tag', to: 'posts#index'
   
   devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks" }
 
@@ -11,8 +10,9 @@ Rails.application.routes.draw do
   		put "dislike" => "posts#downvote"
   	end
 
-  	resources :steps do
-       collection { post :sort }   
+  	resources :steps, shallow: true do
+      resources :comments
+      collection { post :sort }   
   	end
   end
   

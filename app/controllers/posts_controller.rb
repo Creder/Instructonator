@@ -87,6 +87,6 @@ end
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def post_params
-      params.require(:post).permit(:title, :tag_list, :tag, { tag_ids: [] }, :tag_ids)
+      params.require(:post).permit(:title, :tag_tokens)
     end
 end

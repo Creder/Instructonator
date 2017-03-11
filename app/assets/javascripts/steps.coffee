@@ -3,6 +3,7 @@ ready = ->
   $('#steps').sortable
     update: ->
       $.post('steps/sort', $(this).sortable('serialize'))
+      
 
 $(document).ready ready
 
