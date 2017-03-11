@@ -1,4 +1,4 @@
-<p id="notice"><%= notice %></p>
+
 <p>
   <strong>Author:</strong>
   <%= @post.user.name %>
@@ -9,12 +9,15 @@
   <%= @post.title %>
 </p>
 
-<p>
+<div class="jumbotron">
   <% if @post.steps.any? %>
-  <%= render @post.steps =%>
+  <%= render @post.steps.paginate(page: params[:page], per_page: 1) =%>
   <% else %>
   <p> Not found any step</p>
   <% end %>
+  <%= will_paginate @steps %>
+</div>
+<p>
   
 </p>
 <%= @post.score %>

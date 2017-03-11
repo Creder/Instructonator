@@ -15,6 +15,8 @@ end
   # GET /posts/1
   # GET /posts/1.json
   def show
+    @steps = @post.steps.paginate(page: params[:page], per_page: 1)
+    @steps_count = @post.steps.count
   end
 
   # GET /posts/new

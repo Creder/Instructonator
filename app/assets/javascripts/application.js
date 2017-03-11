@@ -17,6 +17,5 @@
 //= require cloudinary
 //= require cloudinary/processing
 //= require twitter/bootstrap
-//= require bootstrap-sprockets
 //= require turbolinks
 //= require_tree .

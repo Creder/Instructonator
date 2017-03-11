@@ -10,15 +10,17 @@
  * files in this directory. Styles in this file should be added after the last require_* statement.
  * It is generally better to create a new file per style scope.
  *
- *
  */
- @import "bootstrap-sprockets";
- @import "bootstrap";
+ @import "bootstap.min.css";
  @import "chosen";
 #tag_cloud {
-    width: 100px;
+    width: 400px;
 	line-height: 1.6em;
 	.s{ font-size: 0.8em; }
 	.m{ font-size: 1.2em; }
 	.l{ font-size: 1.8em; }
 }
+
+
+ #steps { list-style-type: none; margin: 0; padding: 0; height: 600px; width: 100%}
+ #steps div { margin: 3px 3px 3px 0; padding: 1px; float: left; width: 200px; text-align: center; }

@@ -3,9 +3,8 @@
     <h3 class="panel-title"><%= step.title %></h3>
   </div>
   <div class="panel-body">
-  <%= cl_image_tag(step.stepimage, :alt => "Step Image", :width => 200, :height => 200, :crop => :fill)%>
+    <%= cl_image_tag(step.stepimage, :alt => "Step Image", :width => 200, :height => 200, :crop => :fill)%>
     <%= truncate step.content%>
-
   </div>
   <% unless params[:action] == 'show'%>
     <% if can? :update, step %>
