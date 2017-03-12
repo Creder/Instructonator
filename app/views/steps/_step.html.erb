@@ -1,3 +1,4 @@
+<%= form_for(@post) do |f| %>
 <%= content_tag_for :div, step do %> 
   <div class="panel-heading">
     <h3 class="panel-title"><%= step.title %></h3>
@@ -10,10 +11,10 @@
   </div>
   <% unless params[:action] == 'show'%>
     <% if can? :update, step %>
-      <%= link_to 'Edit', edit_step_path(@post, step) %> |
+      <%= link_to 'Edit', edit_step_path(step) %> |
     <% end %>
     <% if can? :destroy, step %>
-      <%= link_to 'Destroy', step_path(@post, step), method: :delete %>
+      <%= link_to 'Destroy', step, method: :delete %>
     <% end %>
   <% end %>
   
@@ -36,4 +37,5 @@
       <% end %>
     </div>
   <% end %>
+<% end %>
 <% end %>

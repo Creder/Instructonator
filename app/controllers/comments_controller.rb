@@ -1,5 +1,5 @@
 class CommentsController < ApplicationController
-  before_action :find_step
+  before_action :find_step, only: :create
   before_action :find_comment, only: :destroy
 
   def create
@@ -27,6 +27,6 @@ class CommentsController < ApplicationController
   end
 
   def find_comment
-    @comment = @step.comments.find(params[:id])
+    @comment = Comment.find(params[:id])
   end
 end

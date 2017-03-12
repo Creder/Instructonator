@@ -1,5 +1,5 @@
 class StepsController < ApplicationController
-  before_action :find_post
+  before_action :find_post, only: [:new, :create]
   before_action :find_step, only: [:edit, :update, :destroy]
 
   def index
@@ -24,12 +24,12 @@ class StepsController < ApplicationController
 
   def update
   	@step.update(steps_params)
-    redirect_to edit_post_path(@post)
+    redirect_to :back
   end
 
   def destroy
   	@step.destroy
-    redirect_to edit_post_path(@post)
+    redirect_to :back
   end
 
   def sort
@@ -46,7 +46,7 @@ end
   end
 
   def find_step
-  	@step = @post.steps.find(params[:id])
+  	@step = Step.find(params[:id])
   end
 
   def find_post

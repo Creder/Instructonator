@@ -12,12 +12,14 @@
 <div class="jumbotron">
   <% if @post.steps.any? %>
     <% cache do %>
-      <%= render @post.steps.paginate(page: params[:page], per_page: 1) =%>
+      <%= render @steps =%>
     <% end %>
   <% else %>
   <p> Not found any step</p>
   <% end %>
-  <%= will_paginate @steps %>
+  <div id="paginator">
+      <%= paginate @steps,  param_name: :page %>
+  </div>
 </div>
 <p>
   
