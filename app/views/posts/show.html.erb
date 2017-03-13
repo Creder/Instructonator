@@ -10,12 +10,10 @@
 </p>
 
 <div class="jumbotron">
-  <% if @post.steps.any? %>
-    <% cache do %> 
+  <% if @post.steps.any? %> 
      <div id="anystep">
         <%= render @steps =%>
      </div>
-    <% end %>
   <% else %>
   <p> Not found any step</p>
   <% end %>
