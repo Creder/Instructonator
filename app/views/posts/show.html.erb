@@ -10,7 +10,7 @@
 </p>
 
 <div class="jumbotron">
-  <% if @post.steps.any? %> 
+  <% if @post.steps.any? %>
      <div id="anystep">
         <%= render @steps =%>
      </div>
@@ -18,7 +18,7 @@
   <p> Not found any step</p>
   <% end %>
   <div id="paginator">
-      <%= will_paginate @steps %>
+      <%= paginate @steps,  :remote => true %>
   </div>
 </div>
 <p>
