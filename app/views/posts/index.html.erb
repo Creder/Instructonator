@@ -15,7 +15,7 @@
       <tr>
         <td><%= link_to post.user.name %> | </td> 
         <td><%= link_to post.title, post%> | </td>
-        <td><%= raw post.tag_list.map { |t| link_to t, tag_path(t) }.join(', ') %>
+        
 </td>
       </tr>
     <% end %>
