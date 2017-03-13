@@ -43,12 +43,12 @@
                 %li.dropdown
                   %a.dropdown-toggle{"aria-expanded" => "false", "data-toggle" => "dropdown", :href => "#", :role => "button"}
                     = current_user.name
-                  %span.caret
-                  %ul.dropdown-menu{:role => "menu"}
-                    %li
-                      %a{:href => "#"} My profile
-                    %li.divider
-                    %li= link_to 'Sign out', destroy_user_session_path, :method => :delete
+                    %span.caret
+                    %ul.dropdown-menu{:role => "menu"}
+                      %li
+                        %a{:href => "#"} My profile
+                      %li.divider
+                      %li= link_to 'Sign out', destroy_user_session_path, :method => :delete
 
               
 
