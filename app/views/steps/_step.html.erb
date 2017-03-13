@@ -9,6 +9,7 @@
       <%= step.content%>
     <% end %>
   </div>
+
   <% unless params[:action] == 'show'%>
     <% if can? :update, step %>
       <%= link_to 'Edit', edit_step_path(step) %> |
@@ -28,7 +29,7 @@
     <% end %>
   </div>
   
-
+    <% if can? :create, comment %>
     <div>
       <p>Add comment</p>
       <%= form_for([step, step.comments.build]) do |f|%>
@@ -36,6 +37,7 @@
       <%= submit_tag "Add" %>
       <% end %>
     </div>
+    <% end %>
   <% end %>
 <% end %>
 

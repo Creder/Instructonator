@@ -1,3 +1,5 @@
 <p><%= comment.content %>
+<% if can? :destroy, comment %>
    <%= link_to 'Destroy', comment, method: :delete %>
+<% end %>
 </p>

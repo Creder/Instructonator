@@ -1,6 +1,7 @@
 class CommentsController < ApplicationController
   before_action :find_step, only: :create
   before_action :find_comment, only: :destroy
+  load_and_authorize_resource
 
   def create
     @comment = @step.comments.build(commets_params)
