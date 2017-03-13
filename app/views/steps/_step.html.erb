@@ -19,6 +19,7 @@
   <% end %>
   
   <% unless params[:action] == 'edit'%>
+
   <div>
   <p>Comments</p>
     <% if step.comments.any? %>
@@ -28,7 +29,7 @@
     <% end %>
   </div>
   
-
+     <% if can? :create, Comment %>
     <div>
       <p>Add comment</p>
       <%= form_for([step, step.comments.build]) do |f|%>
@@ -36,6 +37,7 @@
       <%= submit_tag "Add" %>
       <% end %>
     </div>
+    <% end %>
   <% end %>
 <% end %>
 
