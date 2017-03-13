@@ -13,14 +13,14 @@
   <% if @post.steps.any? %>
     <% cache do %> 
      <div id="anystep">
-        <%= render @post.steps =%>
+        <%= render @steps =%>
      </div>
     <% end %>
   <% else %>
   <p> Not found any step</p>
   <% end %>
   <div id="paginator">
-      <%= will_paginate @post.steps %>
+      <%= paginate @steps %>
   </div>
 </div>
 <p>
