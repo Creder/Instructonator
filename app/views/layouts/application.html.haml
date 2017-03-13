@@ -35,11 +35,11 @@
                 %input.form-control{:placeholder => "Search", :type => "text"}/
               %button.btn.btn-default{:type => "submit"} Submit
             %ul.nav.navbar-nav.navbar-right
-            - if !signed_in?
+             - if !signed_in?
               %li= link_to "fb", user_facebook_omniauth_authorize_path
               %li= link_to "vk", user_vkontakte_omniauth_authorize_path
               %li= link_to "tw", user_twitter_omniauth_authorize_path
-            - else
+             - else
               %li.dropdown
                 %a.dropdown-toggle{"aria-expanded" => "false", "data-toggle" => "dropdown", :href => "#", :role => "button"}
                   = current_user.name
