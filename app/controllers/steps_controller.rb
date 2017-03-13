@@ -3,7 +3,7 @@ class StepsController < ApplicationController
   before_action :find_step, only: [:edit, :update, :destroy]
 
   def index
-    @steps = Step.order("priority").page(params[:page]).per(1)
+    @steps = Step.order("priority")
   end
 
   def new

@@ -14,6 +14,9 @@ end
 
   # GET /posts/1
   # GET /posts/1.json
+  def show
+    @steps = @post.steps.page(params[:page]).per(1)
+  end
 
   # GET /posts/new
   def new
