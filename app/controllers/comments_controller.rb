@@ -7,11 +7,16 @@ class CommentsController < ApplicationController
     @comment.user = current_user
     @comment.save
 
-    redirect_to :back
+    respond_to do |format|
+      format.html {redirect_to :back}
+      format.js
+    end
+ 
   end
 
   def destroy
   	@comment.destroy
+
 
   	redirect_to :back
   end

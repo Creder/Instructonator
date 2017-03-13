@@ -1,0 +1,4 @@
+<%= form_for([@step, @step.comments.build], remote: true) do |f|%>
+      <%= f.text_area :content %>
+      <%= submit_tag "Add" %>
+<% end %>

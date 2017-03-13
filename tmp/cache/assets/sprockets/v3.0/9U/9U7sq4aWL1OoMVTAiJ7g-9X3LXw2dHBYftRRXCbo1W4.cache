@@ -1,0 +1,5 @@
+I"\(function() {
+  $('#comentary').html('<%=j render @post.comments %>');
+
+}).call(this);
+:ET

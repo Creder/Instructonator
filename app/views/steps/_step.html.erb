@@ -1,20 +1,20 @@
 
-<%= content_tag_for :div, step do %> 
+<%= content_tag_for :div, @step = step do %> 
   <div class="panel-heading">
-    <h3 class="panel-title"><%= step.title %></h3>
+    <h3 class="panel-title"><%= @step.title %></h3>
   </div>
   <div class="panel-body">
-    <%= cl_image_tag(step.stepimage, :alt => "Step Image", :width => 200, :height => 200, :crop => :fill)%>
+    <%= cl_image_tag(@step.stepimage, :alt => "Step Image", :width => 200, :height => 200, :crop => :fill)%>
     <% unless params[:action] == 'edit'%>
-      <%= step.content%>
+      <%= @step.content%>
     <% end %>
   </div>
   <% unless params[:action] == 'show'%>
-    <% if can? :update, step %>
+    <% if can? :update, @step %>
       <%= link_to 'Edit', edit_step_path(step) %> |
     <% end %>
-    <% if can? :destroy, step %>
-      <%= link_to 'Destroy', step, method: :delete %>
+    <% if can? :destroy, @step %>
+      <%= link_to 'Destroy', @step, method: :delete %>
     <% end %>
   <% end %>
   
@@ -22,8 +22,10 @@
  s
   <div>
   <p>Comments</p>
-    <% if step.comments.any? %>
-      <%= render step.comments %>
+    <% if @step.comments.any? %>
+    <div id="commentary">
+      <%= render @step.comments, remote: true %>
+      </div>
     <% else %>
       <p>Comments not found</p>
     <% end %>
@@ -32,10 +34,7 @@
 
     <div>
       <p>Add comment</p>
-      <%= form_for([step, step.comments.build]) do |f|%>
-      <%= f.text_area :content %>
-      <%= submit_tag "Add" %>
-      <% end %>
+      <%= render 'comments/form_comments', step: @step %>
     </div>
   <% end %>
 <% end %>
