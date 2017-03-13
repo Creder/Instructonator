@@ -15,7 +15,7 @@ end
   # GET /posts/1
   # GET /posts/1.json
   def show
-    @steps = @post.steps.page(params[:page]).per(1)
+    @steps = @post.steps.paginate(:page => params[:page], :per_page => 1)
   end
 
   # GET /posts/new

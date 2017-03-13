@@ -20,7 +20,7 @@
   <p> Not found any step</p>
   <% end %>
   <div id="paginator">
-      <%= paginate @steps,  :remote => true %>
+      <%= will_paginate @steps %>
   </div>
 </div>
 <p>
