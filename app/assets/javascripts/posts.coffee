@@ -7,7 +7,6 @@ jQuery ->
     prePopulate: $('#post_tag_tokens').data('load')
     preventDuplicates: true
     noResultsText: 'No result, Hit Enter to create a new tag'
-  $('.jumbotron').html '<%= escape_javascript render(@steps) %>'
-  $('#paginator').html '<%= escape_javascript(paginate(paginate @steps,  param_name: :page).to_s) %>'
+
 
 
